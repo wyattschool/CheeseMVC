@@ -1,0 +1,19 @@
+﻿@{
+	ViewData["Title"] = "Cheeses";
+	Layout = null;
+}
+<h1>My Cheese</h1>
+<p><a asp-controller="Cheese" asp-action="Add">Add Cheese</a></p>
+<p><a asp-controller="Cheese" asp-action="Remove">Remove Cheese</a></p>
+
+@if (ViewBag.cheeses.Count == 0)
+{
+	<p>No cheeses yet!</p>
+}
+
+<ul>
+	@foreach (String cheese in ViewBag.cheeses)
+	{
+		<li>@cheese</li>
+	}
+</ul>

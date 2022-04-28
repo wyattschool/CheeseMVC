@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Remove Cheese";
+    Layout = null;
+}
+<html lang="en">
+@if (ViewBag.cheeses.Count != 0)
+    {
+        <form method="post" onsubmit="console.log('Remove cheese') id="cheese-removal">
+        @foreach (String cheese in ViewBag.cheeses)
+            {
+                <label for="@cheese">@cheese</label>
+                <input name="name" type="checkbox"  id="@cheese" value='@cheese' />
+                <br />
+            }
+                <input type="submit" value="Remove Cheese(s)" />
+        </form>
+    }
+
+    @if (ViewBag.cheeses.Count <= 0)
+    {
+        <h2>There are no cheeses to remove.</h2>
+        <p><a asp-controller="Cheese" asp-action="Add">Go here to add cheese</a></p>
+    }
+</html>
